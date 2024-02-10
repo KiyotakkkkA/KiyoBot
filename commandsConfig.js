@@ -6,7 +6,8 @@ buttons = {
     mainMenuReview: "Обратная связь",
     mainMenuAdminPanel: "Админ-панель",
 
-    workInProgress: "[WIP]"
+    workInProgress: "[WIP]",
+    backToMenu: "Вернуться в меню",
 }
 
 module.exports = {buttons}

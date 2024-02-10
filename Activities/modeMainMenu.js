@@ -1,20 +1,22 @@
 const bot = require("../BotConfig/BOT")
 const root = require("../BotConfig/ROOT")
 
+const {buttons} = require('../commandsConfig');
+
 var Modes = {
     lessonsMode: false,
     homeworkMode: false
 }
 
 var keys = [
-    ["Домашние задания", "Расписание", "Преподаватели"],
-    ["Профиль", "[WIP]", "Обратная связь"],
+    [buttons.mainMenuHomework, buttons.mainMenuLessons, buttons.mainMenuTeachers],
+    [buttons.mainMenuProfile, buttons.workInProgress, buttons.mainMenuReview],
     ["..."]
 ]
 
 function mainMenuActivity(text, ChatId, msg){
     if (msg.from.id == root.__ROOT_ID__){
-        keys[2] = ["Админ-панель"]
+        keys[2] = [buttons.mainMenuAdminPanel]
     }
     if (text == "/menu"){
         bot.bot.sendMessage(ChatId, 'Выбери раздел:', {
@@ -24,7 +26,7 @@ function mainMenuActivity(text, ChatId, msg){
         })
         return true
     }
-    if (text == "Вернуться в меню"){
+    if (text == buttons.backToMenu){
         Modes.lessonsMode = false;
         Modes.homeworkMode = false;
         bot.bot.sendMessage(ChatId, 'Выбери раздел:', {
