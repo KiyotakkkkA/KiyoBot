@@ -1,0 +1,25 @@
+{
+  "name": "kiyotaka4.0_nodejs",
+  "version": "4.0.0",
+  "description": "TG-bot for INBO-31-23 group",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KiyotakkkkA/KiyoBot.git"
+  },
+  "author": "Zakhar Kirilenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KiyotakkkkA/KiyoBot/issues"
+  },
+  "homepage": "https://github.com/KiyotakkkkA/KiyoBot#readme",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "knex": "^3.1.0",
+    "node-telegram-bot-api": "^0.64.0",
+    "nodemon": "^3.0.3"
+  }
+}
