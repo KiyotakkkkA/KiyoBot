@@ -16,6 +16,9 @@ buttons = {
     adminBan: "Заблокировать пользователя",
     adminBroadcast: "Сделать объявление",
     andminBack: "Вернуться в меню",
+    adminGroupManagement: "Администрирование групп",
+    adminAddGroup: "Добавить группу",
+    adminGroupsList: "Список групп",
 
     workInProgress: "[WIP]",
     backToMenu: "Вернуться в меню",
