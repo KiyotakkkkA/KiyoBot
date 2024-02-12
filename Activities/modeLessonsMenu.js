@@ -1,8 +1,8 @@
 const {lessons_info_cmds} = require("../MessagesConfig/config_general")
+const {buttons} = require('../commandsConfig');
 
 const bot = require("../BotConfig/BOT")
 const parse = require("../ExternalCommands/GetLessonsFromMireaUtility")
-const {buttons} = require('../commandsConfig');
 
 const menuActivity = require("../Activities/modeMainMenu")
 

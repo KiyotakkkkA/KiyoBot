@@ -2,9 +2,10 @@ const bot = require("../BotConfig/BOT")
 const root = require("../BotConfig/ROOT");
 
 const {info_messages, spec_symbols} = require("../MessagesConfig/config_messages")
+const {buttons} = require('../commandsConfig');
 
 function feedbackActivity(text, ChatId, msg) {
-    if (text == "Обратная связь"){
+    if (text == buttons.mainMenuReview){
         bot.BotMsg(ChatId, spec_symbols['SB_write'] + " Оставьте вашу жалобу/предложение (воспользуйтесь опцией 'ответить' на это сообщение)")
         return true
     }
