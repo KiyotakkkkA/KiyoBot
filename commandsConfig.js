@@ -6,6 +6,11 @@ buttons = {
     mainMenuReview: "Обратная связь",
     mainMenuAdminPanel: "Админ-панель",
 
+    homeworkAdd: "✅ Добавить ДЗ",
+    homeworkKnow: "🔎 Узнать ДЗ",
+    homeworkEdit: "🖋️ Редактировать ДЗ",
+    homeworkDelete: "🗑 Удалить ДЗ",
+
     workInProgress: "[WIP]",
     backToMenu: "Вернуться в меню",
 }

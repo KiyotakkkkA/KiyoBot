@@ -24,7 +24,6 @@ function lessonsGetActivity(text, ChatId){
             break
         }
         if (text.includes(lessons_info_cmds[cmd1])) {
-            console.log(text)
             parse.getData(text.toLowerCase()).then(r => {
                 bot.bot.sendMessage(ChatId, r, {
                     reply_markup: {

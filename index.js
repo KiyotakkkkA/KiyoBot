@@ -5,6 +5,7 @@ const {spec_symbols} = require("./MessagesConfig/config_messages")
 
 const menuActivity = require("./Activities/modeMainMenu");
 const lessonsActivity = require("./Activities/modeLessonsMenu")
+const homeworkActivity = require("./Activities/modeHomeworkMenu")
 
 
 bot.bot.on("message", (msg) => {
@@ -19,6 +20,7 @@ bot.bot.on("message", (msg) => {
         if (lessonsActivity.lessonsGetActivity(text, ChatID)) return
 
         // Manage homework with mysql
+        if (homeworkActivity.homeworkManageActivity(text, ChatID, msg)) return
     }
 
     catch(err){
