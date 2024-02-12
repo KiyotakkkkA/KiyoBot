@@ -5,7 +5,6 @@ var cash = ['', '', '', '', '', '']
 
 async function request(){
     const {data} = await axi.get("https://mirea.xyz/api/v1.3/groups/certain?name=ИНБО-31-23");
-    console.log(data)
     let end_response = '';
     let pair_between_response = '';
 
@@ -51,17 +50,18 @@ async function request(){
 
 }
 
+request()
+
 async function getData(_txt_) {
     let day_id;
-    request().then(data => {
-        for (let md in day_modify) {
-            if (_txt_.includes(md)) {
-                day_id = day_modify[md];
-                end_response = cash[day_id]
-                return ("| Расписание |\n" + end_response);
-            }
+
+    for (let md in day_modify) {
+        if (_txt_.includes(md)) {
+            day_id = day_modify[md];
+            end_response = cash[day_id]
+            return ("| Расписание |\n" + end_response);
         }
-    })
+    }
 }
 
 module.exports = {getData}

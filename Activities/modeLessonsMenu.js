@@ -24,16 +24,19 @@ function lessonsGetActivity(text, ChatId){
             break
         }
         if (text.includes(lessons_info_cmds[cmd1])) {
-            parse.getData(text.toLowerCase()).then(r => bot.bot.sendMessage(ChatId, r, {
-                reply_markup: {
-                    keyboard: [
-                        ["Понедельник", "Вторник", "Среда"],
-                        ["Четверг", "Пятница", "Суббота"],
-                        [buttons.backToMenu]
-                    ]
-                }, 
-                parse_mode: "html"
-            }));
+            console.log(text)
+            parse.getData(text.toLowerCase()).then(r => {
+                bot.bot.sendMessage(ChatId, r, {
+                    reply_markup: {
+                        keyboard: [
+                            ["Понедельник", "Вторник", "Среда"],
+                            ["Четверг", "Пятница", "Суббота"],
+                            [buttons.backToMenu]
+                        ]
+                    }, 
+                    parse_mode: "html"
+                })
+            });
             return true;
         }
     }

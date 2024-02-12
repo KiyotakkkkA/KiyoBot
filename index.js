@@ -17,6 +17,8 @@ bot.bot.on("message", (msg) => {
 
         // Parses lessons from mirea API
         if (lessonsActivity.lessonsGetActivity(text, ChatID)) return
+
+        // Manage homework with mysql
     }
 
     catch(err){
