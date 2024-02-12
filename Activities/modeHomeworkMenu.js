@@ -91,6 +91,8 @@ function homeworkManageActivity(text, ChatId, msg){
                     logg.logger(msg, 'Удалил задание')
                     bot.BotMsg(ChatId, `[${spec_symbols["SB_success"]}] Пользователь <u>${msg.from.first_name}</u> успешно удалил задание`)
                     return true
+                }).catch(err => {
+                    console.log(err)
                 })
 
             }

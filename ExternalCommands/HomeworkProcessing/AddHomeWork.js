@@ -66,6 +66,8 @@ function AddHWProcessing(msg, ChatId){
                         logg.logger(msg, 'Добавил задание')
                         bot.BotMsg(ChatId, `[${spec_symbols["SB_success"]}] Пользователь <u>${msg.from.first_name}</u> успешно добавил задание`)
                         return 1
+                    }).catch(err => {
+                        console.log(err)
                     })
 
                 }

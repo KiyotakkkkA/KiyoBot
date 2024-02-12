@@ -78,6 +78,8 @@ function EditHWProcessing(msg, ChatId){
                     logg.logger(msg, 'Изменил задание')
                     bot.BotMsg(ChatId, `[${spec_symbols["SB_success"]}] Пользователь <u>${msg.from.first_name}</u> успешно изменил задание`)
                     return 1
+                }).catch(err => {
+                    console.log(err)
                 })
             }
             else{

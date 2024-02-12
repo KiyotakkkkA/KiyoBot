@@ -12,6 +12,8 @@ function knowHomework(chat, target_id=''){
         data: knex.select('').from('homework')
     }).then(data => {
         CreateResponce(data.data)
+    }).catch(err => {
+        console.log(err)
     })
 
     function format(id, subj, text, date, complete){
