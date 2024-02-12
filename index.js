@@ -6,6 +6,7 @@ const {spec_symbols} = require("./MessagesConfig/config_messages")
 const menuActivity = require("./Activities/modeMainMenu");
 const lessonsActivity = require("./Activities/modeLessonsMenu")
 const homeworkActivity = require("./Activities/modeHomeworkMenu")
+const feedbackActivity = require("./Activities/modeFeedbackMenu")
 
 
 bot.bot.on("message", (msg) => {
@@ -19,8 +20,11 @@ bot.bot.on("message", (msg) => {
         // Parses lessons from mirea API
         if (lessonsActivity.lessonsGetActivity(text, ChatID)) return
 
-        // Manage homework with mysql
+        // Manages homework with mysql
         if (homeworkActivity.homeworkManageActivity(text, ChatID, msg)) return
+
+        // Supports the feedback
+        if (feedbackActivity.feedbackActivity(text, ChatID, msg)) return
     }
 
     catch(err){
