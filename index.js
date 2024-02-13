@@ -8,6 +8,7 @@ const lessonsActivity = require("./Activities/modeLessonsMenu")
 const homeworkActivity = require("./Activities/modeHomeworkMenu")
 const feedbackActivity = require("./Activities/modeFeedbackMenu")
 const adminpanelActivity = require("./Activities/modeAdminPanelMenu")
+const profileActivity = require("./Activities/modeProfileMenu")
 
 
 bot.bot.on("message", (msg) => {
@@ -26,9 +27,11 @@ bot.bot.on("message", (msg) => {
     try{
 
         // Hide menu
-        if (msg.text.includes('@db')){
-            bot.BotMsg(ChatID, `[${spec_symbols["SB_success"]}] Меню скрыто`)
-            return
+        if (msg.text){
+            if (msg.text.includes('@db')){
+                bot.BotMsg(ChatID, `[${spec_symbols["SB_success"]}] Меню скрыто`)
+                return
+            }
         }
 
         // Shows main menu
@@ -42,6 +45,9 @@ bot.bot.on("message", (msg) => {
 
         // Supports the feedback
         if (feedbackActivity.feedbackActivity(text, ChatID, msg)) return
+
+        // Profile
+        if (profileActivity.profileActivity(text, ChatID, msg)) return
     }
 
     catch(err){

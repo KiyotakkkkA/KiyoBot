@@ -55,17 +55,22 @@ function AddHWProcessing(msg, ChatId){
                     today_.setDate(today_.getDate() + format_offset + total_day_offset)
 
                     dc.DataClass.setDateValue(`${format_day} ${today_.toLocaleDateString()}`)
-
-
-                    Promise.all([knex('homework').insert({
-                        subj: dc.DataClass.subject_,
-                        text: dc.DataClass.task_,
-                        date: dc.DataClass.date_,
-                        complete: "Никто",
-                    })]).then(data => {
-                        logg.logger(msg, 'Добавил задание')
-                        bot.BotMsg(ChatId, `[${spec_symbols["SB_success"]}] Пользователь <u>${msg.from.first_name}</u> успешно добавил задание`)
-                        return 1
+                    Promise.props({
+                        group_id: knex.select('').from('peoples').where('tg_id', msg.from.id)
+                    }).then(data => {
+                        Promise.all([knex('homework').insert({
+                            subj: dc.DataClass.subject_,
+                            text: dc.DataClass.task_,
+                            date: dc.DataClass.date_,
+                            complete: "Никто",
+                            group_id: data.group_id[0].group_id
+                        })]).then(data => {
+                            logg.logger(msg, 'Добавил задание')
+                            bot.BotMsg(ChatId, `[${spec_symbols["SB_success"]}] Пользователь <u>${msg.from.first_name}</u> успешно добавил задание`)
+                            return 1
+                        }).catch(err => {
+                            console.log(err)
+                        })
                     }).catch(err => {
                         console.log(err)
                     })

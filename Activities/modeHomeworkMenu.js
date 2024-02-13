@@ -25,12 +25,12 @@ var DataClass = {
     setDateValue: function(n) {DataClass.date_ = n},
 }
 
-function HomeworkProccessing(text, ChatId){
+function HomeworkProccessing(text, ChatId, msg){
 
     switch (text) {
 
         case (buttons.homeworkKnow):
-            homeW.knowHomework(ChatId)
+            homeW.knowHomework(ChatId, msg)
             break
 
         case (buttons.homeworkAdd):
@@ -40,13 +40,13 @@ function HomeworkProccessing(text, ChatId){
 
         case (buttons.homeworkEdit):
 
-            homeW.knowHomework(ChatId)
+            homeW.knowHomework(ChatId, msg)
             bot.BotMsg(ChatId, `${spec_symbols["SB_edit"]} Выбери ID нужной записи (воспользуйтесь опцией 'ответить' на это сообщение)`)
             break
 
         case (buttons.homeworkDelete):
 
-            homeW.knowHomework(ChatId)
+            homeW.knowHomework(ChatId, msg)
             bot.BotMsg(ChatId, `[🗑] Выбери ID нужной записи (воспользуйтесь опцией 'ответить' на это сообщение)`)
             break
     }
@@ -87,7 +87,10 @@ function homeworkManageActivity(text, ChatId, msg){
             id_ = Number(msg.text)
             if (id_){
 
-                Promise.all([knex('homework').where('id', id_).del()]).then(data => {
+                Promise.all([
+                    knex('homework').where('id', id_).del(),
+                    knex('homework_complete').where('homework_id', id_).del()
+                ]).then(data => {
                     logg.logger(msg, 'Удалил задание')
                     bot.BotMsg(ChatId, `[${spec_symbols["SB_success"]}] Пользователь <u>${msg.from.first_name}</u> успешно удалил задание`)
                     return true

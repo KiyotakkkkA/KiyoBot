@@ -103,6 +103,8 @@ function AdminPanelActivity(text, ChatId, msg){
                 })]).then(data => {
                     bot.BotMsg(ChatId, info_messages['INFO_AddSuccess'])
                     return true
+                }).catch(err => {
+                    console.log(err)
                 })
             }
             else {
