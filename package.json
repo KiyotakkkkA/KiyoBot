@@ -1,6 +1,6 @@
 {
   "name": "kiyotaka4.0_nodejs",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "TG-bot for INBO-31-23 group",
   "main": "index.js",
   "scripts": {
